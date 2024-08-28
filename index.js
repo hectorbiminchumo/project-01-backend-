@@ -14,6 +14,7 @@ connectDB()
 app.use(express.json())
 
 // 3. Rutas
+app.use("/books", require("./routes/books"))
 
 // 4. Server
 app.listen(process.env.PORT, () => {
