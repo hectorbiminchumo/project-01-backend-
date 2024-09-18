@@ -4,21 +4,21 @@ exports.create = async (req, res) => {
     
     // Del formulario, creamos variables y asignamos valores
     const { 
-        nombre,
-        precio,
-        color,
-        imagen,
-        descripcion
+        title,
+        price,
+        pages,
+        image,
+        description
     } = req.body
 
     // Crear un libro en base de datos
     try {
         const newBook = await Book.create({
-            nombre,
-            precio,
-            color,
-            imagen,
-            descripcion
+            title,
+            price,
+            pages,
+            image,
+            description
         })
     // Devolver una respuesta en un formato JSON
         res.json({
@@ -74,22 +74,22 @@ exports.edit = async (req, res) => {
     
     const { id } = req.params
     const {
-        nombre,
-        precio,
-        color,
-        imagen,
-        descripcion
+        title,
+        price,
+        pages,
+        image,
+        description
     } = req.body
 
     try {
         const updatedBook = await Book.findByIdAndUpdate(
             id,
             {
-                nombre,
-                precio,
-                color,
-                imagen,
-                descripcion
+                title,
+                price,
+                pages,
+                image,
+                description
             },
             {new: true}
         )

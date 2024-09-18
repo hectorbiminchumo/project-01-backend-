@@ -1,23 +1,27 @@
-// 1. importaciones
+// 1. imports
 const express = require("express")
+const cors = require('cors');
 const app = express()
+
+// Use CORS middleware
+app.use(cors());
 
 require("dotenv").config();
 
-// importacion de conexion de db
+// import db
 const connectDB = require('./config/db')
 
 // 2. Middlewares
-// Base de datos
+// Database
 connectDB()
-// Todas las peticiones y respuestas se manejan en protocolo JSON
+// Queries and answer are in JSON
 app.use(express.json())
 
-// 3. Rutas
+// 3. Routes
 app.use("/books", require("./routes/books"))
 
 // 4. Server
 app.listen(process.env.PORT, () => {
-    console.log(`Servidor trabajando en ${process.env.PORT}`);
+    console.log(`Server working on ${process.env.PORT}`);
     
 })

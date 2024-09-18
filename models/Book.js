@@ -3,23 +3,23 @@ const mongoose = require("mongoose")
 
 //2. Schema
 const bookSchema = mongoose.Schema({
-    nombre: {
+    title: {
         type: String,
         required: true
     },
-    precio: {
+    price: {
         type: Number,
         required: true
     },
-    color: {
+    pages: {
+        type: Number,
+        required: true
+    },
+    image: {
         type: String,
         required: true
     },
-    imagen: {
-        type: String,
-        required: true
-    },
-    descripcion: {
+    description: {
         type: String,
         required: true
     }
